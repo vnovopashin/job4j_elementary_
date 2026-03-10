@@ -49,4 +49,22 @@ class PointTest {
         double output = new Point(x1, y1).distance(new Point(x2, y2));
         assertThat(output).isEqualTo(expected, withPrecision(0.01));
     }
+
+    @Test
+    public void whenCoordinates123246() {
+        Point a = new Point(1, 2, 3);
+        Point b = new Point(2, 4, 6);
+        double expected = 3.74;
+        double output = a.distance3d(b);
+        assertThat(output).isEqualTo(expected, withPrecision(0.01));
+    }
+
+    @Test
+    public void whenCoordinatesZero() {
+        Point a = new Point(0, 0, 0);
+        Point b = new Point(0, 0, 0);
+        double expected = 0;
+        double output = a.distance3d(b);
+        assertThat(output).isEqualTo(expected, withPrecision(0.01));
+    }
 }
